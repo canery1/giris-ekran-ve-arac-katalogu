@@ -1,0 +1,77 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+    margin: 0;
+    font-family: sans-serif;
+
+}
+.kart-alani{
+    background-color: transparent;
+    width: 320px;
+    height: 450px;
+    perspective: 1000px;
+}
+.kart-ici{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+.kart-alani:hover .kart-ici{
+    transform: rotateY(180deg);
+}
+.on-yuz, .arka-yuz{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+.on-yuz{
+    background-color: #fff;
+    color: #333;
+
+}
+.on-yuz img{
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+}
+.on-yuz h3{
+    margin-top: 40px;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+.arka-yuz{
+    background-color: #2980b9;
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+}
+.ozellikler{
+    list-style: none;
+    padding: 0 30px;
+    text-align: left;
+    line-height: 2.2;
+    font-size: 15px;
+}
+.ozellikler strong{
+    display: inline-block;
+    width: 130px;
+    color: #ecf0f1;
+}
+.arka-yuz h3{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 15px;
+    margin: 0 30px 20px 30px;
+    font-size: 20px;
+}
