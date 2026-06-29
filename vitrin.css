@@ -75,3 +75,10 @@ body{
     margin: 0 30px 20px 30px;
     font-size: 20px;
 }
+.kapsayici{
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
