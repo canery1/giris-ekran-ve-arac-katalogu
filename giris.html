@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .link-alani {text-align: center; margin-top: 15px; font-size: 14px; color: #aaa;}
+        .link-alani a {color: #d35400; text-decoration: none; font-weight: bold; cursor: pointer;}
+        .gizli{display: none;}
+    </style>
+</head>
+<body>
+    <div class="giris" id="giris-kutusu">
+        <img src="kullanici.jpg" alt="giriş">
+        <h3 class="alt-baslik">Devam Etmek İçin Giriş Yapın</h3>
+        <form action="giris_kontrol.php" method="post">
+            <div class="input">
+                <input type="text" id="username" name="kullanici_adi" placeholder="Kullanıcı adı" required>
+            </div>
+            <div class="input">
+                <input type="password" id="password" name="sifre" placeholder="Şifre" required>
+            </div>
+            <p id="hata_mesaji" class="hata"></p>
+            <button type="submit" class="giris-buton">GİRİŞ YAP</button>
+        </form>
+        <div class="link-alani">
+            Hesabınız yok mu? <a onclick="ekranDegistir('kayit')">KAYIT OL</a>
+        </div>
+    </div>
+    <div class="giris gizli" id="kayit-kutusu">
+        <img src="kullanici.jpg" alt="kayıt">
+        <h3 class="alt-baslik">Yeni Hesap Oluşturun</h3>
+        <form action="kaydet.php" method="post">
+            <div class="input">
+                <input type="text" name="kullanici_adi" placeholder="Kullanıcı adını girin" required>
+
+            </div>
+            <div class="input">
+                <input type="email" name="email" placeholder="E-posta adresinizi girin" required>
+            </div>
+            <div class="input">
+                <input type="password" name="sifre" placeholder="Güçlü bir şifre giriniz" required>
+            </div>
+            <button type="submit" class="giris-buton" style="background-color: #27ae60;">KAYDI TAMAMLA</button>
+        </form>
+        <div class="link-alani">
+            Zaten üye misiniz <a onclick="ekranDegistir('giris')">GİRİŞ YAP</a>
+        </div>
+    </div>
+    <script>
+        function girisKontrol(event){
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var HataMesaji = document.getElementById("hata_mesaji");
+            if(username === "admin" && password === "12345"){
+                window.location.href = "vitrin.html"
+            }
+            else{
+                HataMesaji.innerText = "Hatalı Giriş Yaptınız.";
+                HataMesaji.style.display = "block";
+                document.getElementById("username").style.borderColor = "red";
+                document.getElementById("password").style.borderColor = "red";
+            }
+        }
+        function ekranDegistir(hedef){
+            var girisFormu = document.getElementById("giris-kutusu");
+            var kayitFormu = document.getElementById("kayit-kutusu");
+
+            if (hedef === 'kayit'){
+                girisFormu.classList.add("gizli");
+                kayitFormu.classList.remove("gizli");
+            }
+            else{
+                kayitFormu.classList.add("gizli");
+                girisFormu.classList.remove("gizli");
+            }
+        }
+    </script>
+</body>
+</html>
