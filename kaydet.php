@@ -13,10 +13,6 @@ else{
 }
 mysqli_close($baglanti);
 
-if($ekle){
-    echo "<script>alert('Kayıt Başarılı!'); window.location.href = 'giris.html';</script>";
-}
-else{
-    echo "kayıt eklenirken bir hata oluştu" . mysqli_error($baglanti);
-}
+header("Location: giris.html");
+exit();
 ?>

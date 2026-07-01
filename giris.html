@@ -78,6 +78,27 @@
                 girisFormu.classList.remove("gizli");
             }
         }
+        // Sayfa yüklendiğinde URL'de hata parametresi var mı kontrol et
+window.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const hata = urlParams.get('hata');
+    
+    if (hata) {
+        var HataMesaji = document.getElementById("hata_mesaji");
+        
+        // Hata türüne göre mesajı belirliyoruz
+        if (hata === "sifre") {
+            HataMesaji.innerText = "Şifre yanlış.";
+        } else if (hata === "kullanici") {
+            HataMesaji.innerText = "Böyle bir kullanıcı bulunamadı.";
+        }
+        
+        // Senin yazdığın o harika kırmızı yapma kodları devreye giriyor:
+        HataMesaji.style.display = "block";
+        document.getElementById("username").style.borderColor = "red";
+        document.getElementById("password").style.borderColor = "red";
+    }
+});
     </script>
 </body>
 </html>

@@ -28,14 +28,17 @@ if (isset($_POST['kullanici_adi']) && isset($_POST['sifre'])) {
             header("Location: vitrin.html");
             exit();
         }
-        else{
+    
+     else{
             // Kullanıcı adı doğru ama şifre yanlış ise
-            echo "<script>alert('Şifre yanlış.'); window.location.href = 'giris.html';</script>";
+            header("Location: giris.html?hata=sifre");
+            exit();
         }
     }
     else{
         // Kullanıcı adı veritabanında hiç yoksa
-        echo "<script>alert('Böyle bir kullanıcı bulunamadı.'); window.location.href = 'giris.html';</script>";
+        header("Location: giris.html?hata=kullanici");
+        exit();
     }
 } 
 else {
