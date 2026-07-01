@@ -12,4 +12,11 @@ else{
     echo "<h3 style='color:red; text-align:center;'> Hata:" . mysqli_error($baglanti) . "</h3>";
 }
 mysqli_close($baglanti);
+
+if($ekle){
+    echo "<script>alert('Kayıt Başarılı!'); window.location.href = 'giris.html';</script>";
+}
+else{
+    echo "kayıt eklenirken bir hata oluştu" . mysqli_error($baglanti);
+}
 ?>
